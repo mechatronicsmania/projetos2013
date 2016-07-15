@@ -1,0 +1,99 @@
+#include <Servo.h> 
+
+Servo myservo; 
+Servo myservo2;
+Servo myservo3;  
+Servo myservo4; 
+Servo myservo5; 
+Servo myservo6; 
+Servo myservo7;
+
+int pot = 0; 
+int pot2 = 1;  
+int pot3 = 2; 
+int pot4 = 3; 
+int pot5 = 4; 
+int pot6 = 5;
+int val; 
+int val2; 
+int val3;  
+int val4; 
+int val5; 
+int val6; 
+int val7;
+
+void setup(){ 
+  myservo.attach(3); 
+  myservo2.attach(5); 
+  myservo3.attach(6);  
+  myservo4.attach(9);  
+  myservo5.attach(10);
+  myservo6.attach(11);
+  Serial.begin(9600);
+} 
+
+  int MotorA(void){ 
+   val = analogRead(pot);  
+   val = map(val, 0, 1023, 0, 179); 
+   myservo.write(val); 
+   delay(10);  
+   Serial.println(val);
+   delay(100);
+  } 
+  
+  int MotorBC(void){  
+    val2 = analogRead(pot2); 
+    val2 = map(val2, 0, 1023, 0, 179); 
+    myservo2.write(val2); 
+    val3 = map(val2, 0, 179, 179, 0); 
+    myservo3.write(val3); 
+    Serial.println(val2); 
+    Serial.println(val3); 
+    delay(10); 
+      delay(100);
+  } 
+
+  int MotorD(void){ 
+   val4 = analogRead(pot3);  
+   val4 = map(val4, 0, 1023, 0, 179); 
+   myservo4.write(val4); 
+   delay(10); 
+   Serial.println(val4);
+      delay(100);
+  }  
+  
+   int MotorE(void){ 
+   val5 = analogRead(pot4);  
+   val5 = map(val5, 0, 1023, 0, 179); 
+   myservo5.write(val5); 
+   delay(10); 
+   Serial.println(val5);
+      delay(100);
+  }  
+  
+   int MotorF(void){ 
+   val6 = analogRead(pot5);  
+   val6 = map(val6, 0, 1023, 0, 179); 
+   myservo6.write(val6); 
+   delay(10); 
+   Serial.println(val6);
+      delay(100);
+  }  
+  
+   int MotorG(void){ 
+   val7 = analogRead(pot6);  
+   val7 = map(val7, 0, 1023, 0, 179); 
+   myservo7.write(val7); 
+   delay(10); 
+   Serial.println(val7);
+      delay(100);
+  } 
+
+void loop(){ 
+  MotorA(); 
+  MotorBC();  
+  MotorD(); 
+  MotorE(); 
+  MotorF(); 
+  MotorG();
+} 
